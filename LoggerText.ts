@@ -5,7 +5,7 @@ export default class LoggerText implements MyLogger {
 
   }
   verbose(content: string) {
-    console.log(content);
+    console.trace(content);
   }
   info(content: string) {
     console.info(content);
