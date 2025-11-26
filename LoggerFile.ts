@@ -7,11 +7,6 @@ export default class LoggerFile implements MyLogger {
 
   constructor(params?: any) {
     const date = new Date();
-    const [month, day, year] = [
-      date.getMonth(),
-      date.getDate(),
-      date.getFullYear(),
-    ];
     const logFolder = join(__dirname, 'logs');
     try {
       if (!fs.existsSync(logFolder)) {
@@ -20,7 +15,8 @@ export default class LoggerFile implements MyLogger {
     } catch (err) {
       console.error(err);
     }
-    this.filePath = `${logFolder}/${year}-${month + 1}-${day}.txt`
+    // ./logs/YYYY-MM-DD.txt
+    this.filePath = `${logFolder}/${new Date().toISOString().split('T')[0]}.txt`
   }
 
   write(content: string) {
