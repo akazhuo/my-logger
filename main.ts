@@ -6,5 +6,5 @@ console.log(lt);
 
 lt.verbose('test')
 
-const lf = new LoggerFile({ filePath: './' })
-lf.verbose('test')
+const lf = new LoggerFile()
+lf.write('test')
