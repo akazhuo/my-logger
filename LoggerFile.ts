@@ -24,7 +24,7 @@ export default class LoggerFile implements MyLogger {
   }
 
   write(content: string) {
-    fs.appendFile(this.filePath, content + '\n', { flag: 'a+' }, (err: Error) => {
+    fs.appendFile(this.filePath, content + '\n', (err: Error) => {
       if (err) {
         console.log(err);
       } else {
